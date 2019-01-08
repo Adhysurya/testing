@@ -11,7 +11,9 @@ pipeline
         PROJECT = 'tap_sample'
         IMAGE = 'tap_sample:latest'
         ECRURL = '420361828844.dkr.ecr.ap-southeast-1.amazonaws.com/testing'
-        ECRCRED = 'ecr:ap-southeast-1:demo-ecr-credentials'
+        ECRCRED = 'ecr:ap-southeast-1:demo-ecr-credentials
+        AWS_REGION = 'ap-southeast-1'
+    
     }
     stages
     {
