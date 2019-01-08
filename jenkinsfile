@@ -80,7 +80,7 @@ pipeline
             {
                 script
                 {
-                    sh aws ecs update-service --cluster Devops-Testing --service testing --task-definition testingdef:${TASK_REVISION} --desired-count 1
+                    sh aws ecs update-service --cluster Devops-Testing --service testing --task-definition testingdef --desired-count 1
                 }
             }
         }
