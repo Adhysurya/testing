@@ -9,7 +9,7 @@ pipeline
     {
         VERSION = 'latest'
         PROJECT = 'tap_sample'
-        IMAGE = '$PROJECT:$VERSION'
+        IMAGE = 'tap_sample:latest'
         ECRURL = 'http://420361828844.dkr.ecr.ap-southeast-1.amazonaws.com/testing'
         ECRCRED = 'ecr:ap-southeast-1:demo-ecr-credentials'
         AWS_DEFAULT_REGION = 'ap-southeast-1'
@@ -41,7 +41,7 @@ pipeline
                 script
                 {
                     // Build the docker image using a Dockerfile
-                    docker.build('demo')
+                    docker.build('$IMAGE')
                 }
             }
         }
