@@ -42,7 +42,6 @@ pipeline
                 {
                     // Build the docker image using a Dockerfile
                     docker.build('$IMAGE')
-                    docker tag ('testing:latest 420361828844.dkr.ecr.ap-southeast-1.amazonaws.com/testing:latest')
                 }
             }
         }
