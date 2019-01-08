@@ -41,7 +41,7 @@ pipeline
                 script
                 {
                     // Build the docker image using a Dockerfile
-                    docker.build -t ($IMAGE:Latest)
+                    docker.build -t ("$IMAGE:Latest")
                 }
             }
         }
