@@ -81,7 +81,7 @@ pipeline
             {
                 script
                 {
-                    sh "aws ecs update-service --service testing --cluster Devops-Testing-02  --desired-count 2"
+                    sh "aws ecs update-service --service testing-cuy --cluster Devops-Testing-02  --desired-count 3"
                     sh "docker rmi $IMAGE | true"
                 }
             }
