@@ -75,13 +75,25 @@ pipeline
  
             }
          }
-        stage('Docker Deploy')
+        stage('Docker unDeploy')
+        {
+            steps
+            {
+                script
+                {
+                    sh "aws ecs update-service --service testing-cuy --cluster Devops-Testing-02  --desired-count 0"
+                   timeout(time: 5, unit: 'MINUTES')
+                }
+            }
+        }
+      stage('Docker Deploy')
         {
             steps
             {
                 script
                 {
                     sh "aws ecs update-service --service testing-cuy --cluster Devops-Testing-02  --desired-count 3"
+                    timeout(time: 5, unit: 'MINUTES')
                     sh "docker rmi $IMAGE | true"
                 }
             }
