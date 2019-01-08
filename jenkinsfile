@@ -61,5 +61,49 @@ pipeline
                 }
             }
         }
+      }  
+     post
+ 
+    {
+ 
+        always
+ 
+        {
+ 
+            // make sure that the Docker image is removed
+ 
+            sh "docker rmi $IMAGE | true"
+ 
+        }
+ 
     }
-}
+    
+    stage('Docker image pull')
+ 
+        {
+ 
+            steps
+ 
+            {
+ 
+                script
+ 
+                {
+ 
+                    sh("eval \$(aws ecr get-login --no-include-email | sed 's|https://||')")
+ 
+                    docker.withRegistry(ECRURL, ECRCRED)
+ 
+                    {
+ 
+                        docker.image(PROJECT).pull()
+ 
+                    }
+ 
+                }
+ 
+            }
+ 
+        }
+   }
+
