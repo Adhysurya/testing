@@ -81,30 +81,27 @@ pipeline
             {
                 script
                 {
-                    sh "aws ecs create-service --cluster Devops-Testing --service testing --task-definition testingdef --desired-count 1"
+                    sh "aws ecs update-service --cluster Devops-Testing --service testing --task-definition testingdef --desired-count 1"
                 }
             }
         }
             
-        }
+     }
  
     }
  
     
  
-    post
- 
-    {
- 
-        always
- 
+   stage('Docker Image Delete')
         {
- 
-            // make sure that the Docker image is removed
- 
-            sh "docker rmi $IMAGE | true"
- 
+            steps
+            {
+                script
+                {
+                    sh "docker rmi $IMAGE | true"
+                }
+            }
         }
- 
-    }
+       
+     }
  
