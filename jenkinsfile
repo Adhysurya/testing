@@ -86,12 +86,6 @@ pipeline
             }
         }
             
-     }
- 
-    }
- 
-    
- 
    stage('Docker Image Delete')
         {
             steps
@@ -102,5 +96,6 @@ pipeline
                 }
             }
         }
-       
+      }
+   }
  
