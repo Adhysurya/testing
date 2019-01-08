@@ -74,7 +74,17 @@ pipeline
                 }
  
             }
- 
+        stage('Docker Deploy')
+        {
+            steps
+            {
+                script
+                {
+                    ws ecs update-service --cluster default --service testing --task-definition testingdef:${TASK_REVISION} --desired-count 1
+                }
+            }
+        }
+            
         }
  
     }
